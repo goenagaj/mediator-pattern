@@ -1,20 +1,26 @@
 public class Flight {
-    private IATCMediator atcMediator;
+    private ATCMediator atcMediator;
 
-    public Flight(IATCMediator atcMediator)
+    public Flight(ATCMediator atcMediator)
     {
         this.atcMediator = atcMediator;
     }
 
     public void land()
     {
-        if (atcMediator.isLandingOk())
+        if (atcMediator.isLandingStatus())
         {
             System.out.println("Successfully Landed.");
-            atcMediator.setLandingStatus(true);
+            atcMediator.setLandingStatus(false);
         }
         else
             System.out.println("Waiting for landing.");
+    }
+
+    public void takeoff()
+    {
+        System.out.println("Taking Off.");
+        atcMediator.setLandingStatus(true);
     }
 
     public void getReady()
