@@ -1,9 +1,14 @@
+import java.util.ArrayList;
 
-     public class ATCMediator implements IATCMediator
+public class ATCMediator
     {
-        private Flight flight;
+        private ArrayList<Flight> flights;
         private Runway runway;
-        public boolean land;
+        private boolean landingStatus;
+
+        public ATCMediator() {
+            this.flights = new ArrayList<>();
+        }
 
         public void registerRunway(Runway runway)
         {
@@ -12,19 +17,16 @@
 
         public void registerFlight(Flight flight)
         {
-            this.flight = flight;
+            this.flights.add(flight);
         }
 
-        public boolean isLandingOk()
+        public boolean isLandingStatus()
         {
-            return land;
+            return landingStatus;
         }
 
-        @Override
         public void setLandingStatus(boolean status)
         {
-            land = status;
+            landingStatus = status;
         }
     }
-
-
